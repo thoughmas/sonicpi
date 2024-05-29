@@ -1,0 +1,11 @@
+use_bpm 60
+
+live_loop :kick do
+  sample (ring, :bd_haus, :bd_tek).tick
+  sleep 0.5
+end
+
+live_loop :hats do
+  sample (ring, :drum_heavy_kick, :drum_bass_soft).tick amp: 0.6
+  sleep 0.5
+end
