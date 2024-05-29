@@ -1,0 +1,20 @@
+##| https://www.youtube.com/watch?v=9yURI_blNQY&list=PLIsdHp2z9wFlu3MRII0eS5NysniOOnXL5&index=5&ab_channel=MisterBomb
+##| Using spreads allows randomization and interest without having to maunally create rings and custom calculated sleeps
+
+# puts spread(11, 16)
+
+use_bpm 98
+
+##| live_loop :sp do
+##|     sample :bd_haus if spread(11,16).tick
+##|     sleep 0.25
+##| end
+
+live_loop :sp do
+  use_synth :bass_foundation
+  use_random_seed 333
+  32.times do
+    play scale(60, :minor_pentatonic).choose, release: 0.4 if spread(8,10).tick
+    sleep 0.25
+  end
+end
