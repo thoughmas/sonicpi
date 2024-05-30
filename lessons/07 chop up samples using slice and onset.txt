@@ -1,0 +1,17 @@
+##| https://www.youtube.com/watch?v=edybZv-AHpc&list=PLIsdHp2z9wFlu3MRII0eS5NysniOOnXL5&index=7&ab_channel=MisterBomb
+# chop up samples using slice and onset
+
+use_sample_bpm :loop_breakbeat, num_beats: 8
+
+live_loop :chop do
+  use_random_seed 234234
+  16.times do
+    ##| sample :loop_amen_full, num_slices: 8, slice: 5
+    ##| sample :loop_amen_full, num_slices: 8, slice: (ring, 0,3,1,5).tick #play specific slices
+    sample :loop_breakbeat, num_slices: 16, slice: pick #play random slices
+    sleep 0.5 #num beats divided by num slices
+  end
+end
+
+
+
